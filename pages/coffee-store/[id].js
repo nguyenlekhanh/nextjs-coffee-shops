@@ -8,7 +8,7 @@ import Head from "next/head";
 import cls from "classnames";
 import { fetchCoffeeStores } from "@/lib/coffee-store";
 
-import { StoreContext } from "../_app";
+import { StoreContext } from "../../store/store-context";
 
 import { isEmpty } from "../../utils";
 
