@@ -20,6 +20,7 @@ const Card = (props) => {
                         style={{
                             width: '100%',
                           }}
+                        alt={props.name}
                     />
                 </div>
             </div>
