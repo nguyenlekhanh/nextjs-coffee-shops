@@ -16,7 +16,6 @@ import useSWR from "swr";
 
 export async function getStaticProps(staticProps) {
   const params = staticProps.params;
-  console.log("params", params);
 
   const coffeeStores = await fetchCoffeeStores();
   const findCoffeeStoreById = coffeeStores.find((coffeeStore) => {
@@ -76,7 +75,6 @@ const CoffeeStore = (initialProps) => {
       });
 
       const dbCoffeeStore = await response.json();
-      console.log({ dbCoffeeStore });
     } catch (err) {
       console.error("Error creating coffee store", err);
     }
@@ -105,7 +103,6 @@ const CoffeeStore = (initialProps) => {
 
   useEffect(() => {
     if (data && data.length > 0) {
-      console.log("data from SWR", data);
       setCoffeeStore(data[0]);
       setVotingCount(data[0].voting);
     }
@@ -166,18 +163,18 @@ const CoffeeStore = (initialProps) => {
         <div className={cls("glass", styles.col2)}>
           {address && (
             <div className={styles.iconWrapper}>
-              <Image src="/static/icons/places.svg" width="24" height="24" />
+              <Image src="/static/icons/places.svg" width="24" height="24" alt="{address}"/>
               <p className={styles.text}>{address}</p>
             </div>
           )}
           {neighbourhood && (
             <div className={styles.iconWrapper}>
-              <Image src="/static/icons/nearMe.svg" width="24" height="24" />
+              <Image src="/static/icons/nearMe.svg" width="24" height="24" alt="{neighbourhood}"/>
               <p className={styles.text}>{neighbourhood}</p>
             </div>
           )}
           <div className={styles.iconWrapper}>
-            <Image src="/static/icons/star.svg" width="24" height="24" />
+            <Image src="/static/icons/star.svg" width="24" height="24" alt="{votingCount}"/>
             <p className={styles.text}>{votingCount}</p>
           </div>
 

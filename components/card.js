@@ -17,6 +17,9 @@ const Card = (props) => {
                         src={props.imgUrl}
                         width={260}
                         height={160}
+                        style={{
+                            width: '100%',
+                          }}
                     />
                 </div>
             </div>
